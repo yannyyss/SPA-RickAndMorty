@@ -2,12 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './Card.scss'
 
-const Card = ({img, number, name}) => {
+const Card = ({name, img}) => {
     return (
         <div className='card'>
-            {img ? <div>
-                <img alt="rick" src={img} />
-            </div>: <div>{number}</div>}
+            <img alt="rick" src={img} />
             <p className='name'>
                 {name}
             </p>
