@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <div className="navbar">
-      <NavLink className='link' activeClassName="active" exact to='/'>Inicio</NavLink>
+      <NavLink className='link' activeClassName="active" exact to='/'>Home</NavLink>
       <NavLink className='link' activeClassName="active" exact to='/profile'>Profile</NavLink>
       <NavLink className='link' activeClassName="active" exact to='/episode'>Episode</NavLink>
       </div>
