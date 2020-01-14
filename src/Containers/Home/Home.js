@@ -3,12 +3,16 @@ import { TextField } from '@material-ui/core/'
 import Card from '../../Components/Card'
 import './Home.scss'
 import { connect } from 'react-redux'
+import { filterCharsAction } from '../../Redux/charsDuck'
 
-const Home = ({chars, epis}) => {
-    if (chars.length === 0) return <div>Loading...</div>
+const Home = ({chars, epis, filterCharsAction}) => {
+
+    const searchCharacter = (event) => {
+        filterCharsAction(event.target.value)
+    }
     return (
         <div className='home'>
-            <TextField id="outlined-search" label="Search" type="search" variant="outlined" className="search"/>
+            <TextField onChange={searchCharacter} id="outlined-search" label="Search" type="search" variant="outlined" className="search"/>
             <h2>Characters</h2>
             <div className='chars'>
                 {chars.map(char=>{
@@ -27,9 +31,9 @@ const Home = ({chars, epis}) => {
 
 const mapState = (state) => {
     return {
-        chars: state.characters.chars,
+        chars: state.characters.filterChars,
         epis: state.episodes.episodes
     }
 }
 
-export default connect(mapState)(Home)
+export default connect(mapState, { filterCharsAction })(Home)
