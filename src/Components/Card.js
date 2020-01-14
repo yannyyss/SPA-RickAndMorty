@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './Card.scss'
 
-const Card = ({img, number, name}) => {
+const Card = ({img, number, name, onClick}) => {
     return (
-        <div className='card'>
+        <div className='card' onClick={onClick}>
             {img ? <div>
                 <img alt="rick" src={img} />
             </div>: <div>{number}</div>}

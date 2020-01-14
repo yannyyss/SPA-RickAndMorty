@@ -4,7 +4,8 @@ import axios from 'axios'
 let initialData = {
     fetching: false,
     chars: [],
-    filterChars: []
+    filterChars: [],
+    currentChar: false
 }
 
 let URL = "https://rickandmortyapi.com/api/character"
@@ -14,6 +15,7 @@ let GET_CHARACTERS_SUCCESS = "GET_CHARACTERS_SUCCESS"
 let GET_CHARACTERS_ERROR = "GET_CHARACTERS_ERROR"
 
 let FILTER_CHARACTERS = "FILTER_CHARACTERS"
+let CHANGE_CURRENTCHAR = "CHANGE_CURRENTCHAR"
 
 //Reducer
 export  default function reducer (state = initialData, action) {
@@ -26,6 +28,8 @@ export  default function reducer (state = initialData, action) {
             return {...state, fetching: false, error: action.payload}
         case FILTER_CHARACTERS:
             return {...state, filterChars: action.payload}
+        case CHANGE_CURRENTCHAR:
+            return {...state, currentChar: action.payload}
         default:
             return state
     }
@@ -64,5 +68,12 @@ export let filterCharsAction = (event) => (dispatch, getState) => {
     dispatch({
         type: FILTER_CHARACTERS,
         payload: filtered
+    })
+}
+
+export let getCharAction = (char) => (dispatch, getState) => {
+    dispatch({
+        type: CHANGE_CURRENTCHAR,
+        payload: char
     })
 }

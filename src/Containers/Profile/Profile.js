@@ -1,11 +1,19 @@
 import React from 'react'
+import ProfileCard from '../../Components/ProfileCard'
+import './Profile.scss'
+import { connect } from 'react-redux'
 
-const Profile = () => {
+const Profile = ({char}) => {
     return (
-        <div>
-            Character profile
+        <div className="profile">
+            <ProfileCard char={char}/>
         </div>
     )
 }
+const mapState = (state) => {
+    return{
+        char:state.characters.currentChar
+    }
+}
 
-export default Profile
+export default connect(mapState)(Profile)
