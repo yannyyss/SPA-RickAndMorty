@@ -4,7 +4,6 @@ import axios from 'axios'
 let initialData = {
     fetching: false,
     chars: [],
-    episodes: [], 
     filterChars: []
 }
 
