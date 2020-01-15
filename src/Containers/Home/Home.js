@@ -5,9 +5,9 @@ import { useHistory } from 'react-router-dom'
 import './Home.scss'
 import { connect } from 'react-redux'
 import { filterCharsAction, getCharAction } from '../../Redux/charsDuck'
-import { filterEpisAction } from '../../Redux/episDuck'
+import { filterEpisAction, getEpisAction } from '../../Redux/episDuck'
 
-const Home = ({chars, epis, filterCharsAction, getCharAction, filterEpisAction}) => {
+const Home = ({chars, epis, filterCharsAction, getCharAction, filterEpisAction, getEpisAction}) => {
 
     const searchCharacter = (event) => {
         filterCharsAction(event.target.value)
@@ -19,8 +19,9 @@ const Home = ({chars, epis, filterCharsAction, getCharAction, filterEpisAction})
         history.push('/profile')
         getCharAction(char)
     }
-    const goToEpisDetail = () => {
+    const goToEpisDetail = (epis) => {
         history.push('/episode')
+        getEpisAction(epis)
     }
 
     return (
@@ -35,7 +36,7 @@ const Home = ({chars, epis, filterCharsAction, getCharAction, filterEpisAction})
             <h2>Episodes</h2>
             <div className='chars'>
                 {(epis.length > 0) ? epis.map(eps=>{
-                    return <Card name={eps.name} number={eps.episode} onClick={goToEpisDetail}/>
+                    return <Card name={eps.name} number={eps.episode} onClick={() =>goToEpisDetail(eps)}/>
                 }): <div>The search didn't match with any episode</div>}
             </div>
         </div>
@@ -49,4 +50,4 @@ const mapState = (state) => {
     }
 }
 
-export default connect(mapState, { filterCharsAction, getCharAction, filterEpisAction })(Home)
+export default connect(mapState, { filterCharsAction, getCharAction, filterEpisAction, getEpisAction })(Home)

@@ -1,11 +1,20 @@
 import React from 'react'
+import EpisodeCard from '../../Components/EpisodeCard'
+import './Episode.scss'
+import { connect } from 'react-redux'
 
-const Episode = () => {
+const Episode = ({epis}) => {
     return (
-        <div>
-            Episode Information
+        <div className="episode">
+            <EpisodeCard epis={epis}/>
         </div>
     )
 }
 
-export default Episode
+const mapState = (state) => {
+    return {
+        epis: state.episodes.currentEpis
+    }
+}
+
+export default connect(mapState)(Episode)

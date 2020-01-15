@@ -1,0 +1,35 @@
+.episode-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    width: 550px;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0px 2px 10px rgb(88, 86, 86);
+    position: relative;
+    margin: 16px;
+    .episode-header {
+        display: flex;
+        flex-direction: column;
+    }
+    .episode-body {
+        padding: 30px;
+        width: 100%;
+        box-sizing: border-box;
+        .episode-info {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            h2 {
+                text-align: left;
+            }
+            p {
+                text-align: right;
+                margin-left: 10px;
+            }
+        }
+    }
+}

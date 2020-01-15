@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import './ProfileCard.scss'
 
 const ProfileCard = ({char}) => {
-    
+
     return (
         (char) ? <div className="profile-card">
             <div className="left-container">
@@ -36,6 +36,7 @@ const ProfileCard = ({char}) => {
         </div> : <h2>Select a character in Home</h2>
     )
 }
+
 ProfileCard.propTypes = {
     char: PropTypes.string
 }
