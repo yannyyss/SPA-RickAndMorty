@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import './EpisodeCard.scss'
 
 const EpisodeCard = ({epis}) => {
-    console.log(epis)
+
     return (
         (epis) ? <div className="episode-card">
             <div className="episode-head">
