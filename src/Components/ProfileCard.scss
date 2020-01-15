@@ -44,3 +44,12 @@
         }
     }
 }
+@media (max-width: 400px) {
+    .profile-card {
+        flex-direction: column;
+        .rigth-container {
+            padding: 0;
+            width: 100%;
+        }
+    }
+}
