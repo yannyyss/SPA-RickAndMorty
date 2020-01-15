@@ -8,7 +8,7 @@ const EpisodeCard = ({epis}) => {
         (epis) ? <div className="episode-card">
             <div className="episode-head">
                 <h2>Episode Name:</h2>
-                <p>{epis.name}</p>
+                <h3>{epis.name}</h3>
             </div>
             <div className="episode-body">
                 <div className="episode-info">
